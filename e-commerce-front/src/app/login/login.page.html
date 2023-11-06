@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar style="text-align: center;">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="form" (submit)="login()">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-icon name="mail" slot="start"></ion-icon>
+                        <ion-input formControlName="email" labelPlacement="floating" placeholder="email@email.com" label="Email"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-icon name="lock-closed" slot="start"></ion-icon>
+                        <ion-input formControlName="password" labelPlacement="floating" placeholder="*******" label="Password" [type]="passwordVisible ? 'text' : 'password'"></ion-input>
+                        <ion-icon [name]="passwordVisible ? 'eye-off' : 'eye'" slot="end" (click)="changePasswordVisibility()"></ion-icon>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" style="text-align: end;" >
+                    <ion-button expand="full" color="medium" [disabled]="!form.valid" type="submit">
+                        Login
+                        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="6"></ion-col>
+                <ion-col size="6" style="text-align: end;" >
+                    <ion-button expand="full" color="success">
+                        Criar conta
+                        <ion-icon name="add" slot="end"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

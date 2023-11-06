@@ -1,0 +1,7 @@
+{
+  "name": "e-commerce-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
