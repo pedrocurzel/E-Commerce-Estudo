@@ -1,8 +1,8 @@
 import { validarToken } from "../../token/token-gen.js";
 
 export async function validaToken(req, res, next) {
-    const { token } = req.body;
-
+    const { token } = req.headers;
+    //console.log(token);
     if (token) {
         try {
             let validou = await validarToken(token);

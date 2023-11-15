@@ -17,6 +17,25 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'criar-conta',
+    loadChildren: () => import('./criar-conta/criar-conta.module').then( m => m.CriarContaPageModule)
+  },
+  {
+    path: 'carrinho',
+    loadChildren: () => import('./carrinho/carrinho.module').then( m => m.CarrinhoPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'produto/:id',
+    loadChildren: () => import('./produto/produto.module').then( m => m.ProdutoPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pedidos',
+    loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

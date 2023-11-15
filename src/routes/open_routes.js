@@ -10,5 +10,7 @@ open_routes.post("/login", LoginController.login);
 
 open_routes.post("/valida_token", ValidateTokenController.validateToken);
 
+open_routes.post("/criar-conta", LoginController.criarConta);
+
 
 export default open_routes;

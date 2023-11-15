@@ -1,0 +1,13 @@
+<ion-footer>
+    <ion-toolbar>
+        <ion-tab-bar>
+            <ion-tab-button (click)="navigate('home')" [ngClass]="{'currentPage': currentPage == 'home'}">
+                <ion-icon name="home"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button (click)="navigate('carrinho')" [ngClass]="{'currentPage': currentPage == 'carrinho'}">
+                <ion-text class="items-number">{{carrinhoService.getProdutos().length}}</ion-text>
+                <ion-icon name="bag-handle"></ion-icon>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-toolbar>
+</ion-footer>

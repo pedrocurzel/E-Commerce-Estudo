@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
+    <ion-button (click)="openProfileOpts()" slot="end" class="profile-button" color="medium">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon>
+        <ion-icon [name]="isProfileOptsOpen ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <app-profile-options *ngIf="isProfileOptsOpen"></app-profile-options>
+    <swiper-container #swiper [pagination]="true" style="text-align: center;">
+        <swiper-slide *ngFor="let slide of carouselSlides">
+            <img [src]="slide.imgSrc" />
+        </swiper-slide>
+    </swiper-container>
+    <div *ngIf="ready">
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; padding: 30px;">
+            <app-product-item *ngFor="let produto of produtos;" [produto]="produto"></app-product-item>
+        </div>
+    </div>
 </ion-content>
+<app-tabs currentPage="home"></app-tabs>

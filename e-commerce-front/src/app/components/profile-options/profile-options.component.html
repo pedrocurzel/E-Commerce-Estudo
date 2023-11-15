@@ -1,0 +1,16 @@
+<div class="main-container">
+    <div class="options">
+        <ion-item button="true">
+            <ion-icon name="settings" class="icon-margin"></ion-icon>
+            <ion-label>Settings</ion-label>
+        </ion-item>
+        <ion-item button="true" color="success" (click)="goToPedidos()" >
+            <ion-icon name="file-tray-full-outline" class="icon-margin"></ion-icon>
+            <ion-label>Pedidos</ion-label>
+        </ion-item>
+        <ion-item button="true" color="danger" style="--border-radius: 0px 0px 20px 20px;" (click)="confirmarSair()" >
+            <ion-icon name="log-out" class="icon-margin"></ion-icon>
+            <ion-label>Sair</ion-label>
+        </ion-item>
+    </div>
+</div>

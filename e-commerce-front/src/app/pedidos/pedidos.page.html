@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+        <ion-title>Pedidos</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-accordion-group>
+        <ion-accordion *ngFor="let pedido of pedidos">
+          <ion-item slot="header" color="light">
+            <ion-label>{{pedido.id}}</ion-label>
+            <ion-label>{{pedido.precoTotalPedido}}</ion-label>
+            <ion-label>{{trataData(pedido.dataPedido)}}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+                <ion-row style="background-color: darkgray;">
+                    <ion-col size="3"></ion-col>
+                    <ion-col size="3">
+                        Nome
+                    </ion-col>
+                    <ion-col size="3">
+                        Preco
+                    </ion-col>
+                    <ion-col size="3">
+                        Qtd
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngFor="let item of pedido.items">
+                    <ion-col size="3">
+                        <img height="100" [src]="item.imagem.imagem" />
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-label>{{item.nome}}</ion-label>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-label>{{item.preco}}</ion-label>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-label>{{item.quantidade}}</ion-label>
+                    </ion-col> 
+                </ion-row>
+            </ion-list>
+          </div>
+        </ion-accordion>
+    </ion-accordion-group>
+</ion-content>

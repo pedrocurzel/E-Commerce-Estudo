@@ -30,6 +30,32 @@ class LoginController {
 
     }
 
+    static async criarConta(req, res) {
+        const {nome, email, senha} = req.body;
+        console.log(email);
+        let response = (await Database.executeQuery(`SELECT id FROM usuarios WHERE email = '${email}'`))[0];
+        console.log(response);
+        if (response) {
+            res.status(500).json({
+                error: true,
+                message: "Usuário já existe!"
+            });
+        } else {
+            try {
+                await Database.executeQuery(`INSERT INTO usuarios(nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`);
+                res.status(201).json({
+                    error: false,
+                    message: "Conta criada!"
+                })
+            } catch(error) {
+                res.status(500).json({
+                    error: true,
+                    message: error
+                })
+            }
+        }
+    }
+
 }
 
 export default LoginController;

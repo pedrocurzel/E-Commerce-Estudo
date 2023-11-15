@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+        <ion-title>Produto</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="ready">
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <swiper-container #swiper class="swiper swiper-sw" [pagination]="true">
+            <swiper-slide *ngFor="let imagem of produto!.imagens">
+                <img [src]="imagem" style="border-radius: 10px;"/>
+            </swiper-slide>
+        </swiper-container>
+        <div>
+            <h1>{{produto?.nome}}</h1>
+            <h1>{{produto?.descricao}}</h1>
+            <h1>{{produto?.preco}}</h1>
+            <ion-button (click)="adicionarCarrinho()">Comprar</ion-button>
+        </div>
+        <div></div>
+    </div>
+</ion-content>
+<ion-footer>
+    <app-tabs currentPage="produto"></app-tabs>
+</ion-footer>

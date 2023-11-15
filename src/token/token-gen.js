@@ -28,3 +28,9 @@ export async function validarToken(token) {
         });
     });
 }
+
+export async function decode(token) {
+    return new Promise((resolve, reject) => {
+        return resolve(jsonwebtoken.decode(token));
+    });
+}

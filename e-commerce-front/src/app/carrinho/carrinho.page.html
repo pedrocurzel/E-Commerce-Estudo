@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <p style="display: inline-block;">Total: R$ {{precoTotalCarrinho()}}</p>
+        <ion-button *ngIf="precoTotalCarrinho() != 0"  fill="clear" (click)="finalizarPedido()" >
+            <ion-icon name="card-outline" color="success"></ion-icon>
+        </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <div *ngFor="let produto of produtosCarrinho" style="border: 1px solid white; margin: 15px;">
+            <img [src]="produto.imagem" height="300" />
+            {{produto.nome}} Quantidade: {{produto.getQuantidade()}}
+            <div style="display: flex; justify-content: space-around; flex-direction: column;">
+                <ion-button (click)="diminuiQtd(produto)">
+                    <ion-icon name="remove"></ion-icon>
+                </ion-button>
+                <ion-button (click)="aumentaQtd(produto)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-button>
+            </div>
+            <ion-button (click)="deleteProduto(produto)">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+            R$ {{produto.getPrecoTotal()}}
+        </div>
+    </div>
+</ion-content>
+<app-tabs currentPage="carrinho"></app-tabs>

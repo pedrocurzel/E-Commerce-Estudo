@@ -1,0 +1,8 @@
+<div class="product-container" (click)="goToProductPage($event)">
+    <img [src]="produto!.imagem" class="product-image"/>
+    <div class="labels-container">
+        <ion-text class="product-text">{{produto!.nome}}</ion-text>
+        <ion-text class="product-text">{{produto!.preco}}</ion-text>
+        <ion-button (click)="adicionar()" >Adicionar ao carrinho</ion-button>
+    </div>
+</div>
